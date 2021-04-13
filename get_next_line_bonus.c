@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int get_next_line(int fd, char **line)
 {
@@ -7,8 +7,8 @@ int get_next_line(int fd, char **line)
 	int 	s;
 
 	*line = 0;
-	if (fd < 0 || fd >= 128 || read(fd, buffer[fd], 0) == -1)
-			return -1;
+	if (fd < 0 || fd >= 128  || read(fd, buffer[fd], 0))
+		return -1;
 	while(1)
 	{
 		if (ft_strchr(buffer[fd], &c) == -1)
@@ -31,25 +31,3 @@ int get_next_line(int fd, char **line)
 		}
 	}
 }
-/*
-int main()
-{
-	int		fd;
-	int		ret_value;
-	char	*line;
-
-	line = NULL;
-	fd = open("d.txt", O_RDONLY);
-	if (fd == -1)
-		return (-1);
-	ret_value = 1;
-	while (ret_value == 1)
-	{
-		ret_value = get_next_line(fd, &line);
-		printf("GnL : %d\n", ret_value, line);
-		free(line);
-	}
-	close(fd);
-	return (0);
-}
-*/

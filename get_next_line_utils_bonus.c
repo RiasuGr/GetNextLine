@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 unsigned int	ft_strlcpy(char *dst, char *src, unsigned int size)/*done*/
 {
